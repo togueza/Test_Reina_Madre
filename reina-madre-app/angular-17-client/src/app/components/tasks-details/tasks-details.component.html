@@ -1,0 +1,92 @@
+@if (viewMode){
+  @if (currentTasks.id){
+  <h4>Task</h4>
+  <div>
+    <label><strong>Title:</strong></label> {{ currentTasks.title }}
+  </div>
+  <div>
+    <label><strong>Description:</strong></label>
+    {{ currentTasks.description }}
+  </div>
+  <div>
+    <label><strong>Status:</strong></label>
+    {{ currentTasks.completed ? "Completed" : "Uncompleted" }}
+  </div>
+  <div>
+    <label><strong>Priority:</strong></label>
+    {{ currentTasks.priorities }}
+  </div>
+
+  <a class="badge badge-warning" routerLink="/tasks/{{ currentTasks.id }}">
+    Edit
+  </a>
+  } @else {<p>Please click on a Task...</p>}
+} @else {
+  @if (currentTasks.id) {
+  <div class="edit-form">
+    <h4>Task</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentTasks.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentTasks.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="priorities">Priorities:</label>
+        <select
+          class="form-control"
+          name="priorities"
+          id="priorities"
+          [(ngModel)]="currentTasks.priorities">
+          <option disabled>Select Priority</option>
+          <option *ngFor="let web of prioritiesList">{{web}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentTasks.completed ? "Completed" : "Uncompleted" }}
+      </div>
+    </form>
+
+    @if (currentTasks.completed) {
+    <button class="badge badge-primary mr-2"
+      (click)="updateCompleted(false)" >
+      UnCompleted
+    </button>
+    } @else {
+    <button class="badge badge-primary mr-2" (click)="updateCompleted(true)">
+      Completed
+    </button>
+    }
+
+    <button class="badge badge-danger mr-2" (click)="deleteTasks()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTasks()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  } @else {<p>Cannot access this Tasks...</p>}
+}

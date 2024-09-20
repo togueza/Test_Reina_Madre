@@ -1,0 +1,46 @@
+<div>
+  <div class="submit-form">
+    @if (!submitted) {
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="tasks.title"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="tasks.description"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="priorities">Priority</label>
+      <select
+        class="form-control"
+        id="priorities"
+        required
+        [(ngModel)]="tasks.priorities"
+        name="priorities">
+                <option disabled>Select Priority</option>
+                <option *ngFor="let web of prioritiesList">{{web}}</option>
+      </select>
+     </div>
+
+    <button (click)="saveTasks()" class="btn btn-success">Submit</button>
+    } @else {
+    <h4>Tutorial was submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newTasks()">Add</button>
+    }
+  </div>
+</div>
