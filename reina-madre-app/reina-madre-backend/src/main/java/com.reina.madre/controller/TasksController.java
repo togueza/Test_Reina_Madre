@@ -25,10 +25,8 @@ import com.reina_madre.repository.TasksRepository;
 @RestController
 @RequestMapping("/api")
 public class TasksController {
-
   @Autowired
   TasksRepository tasksRepository;
-
   @GetMapping("/tasks")
   public ResponseEntity<List<Tasks>> getAllTasks(@RequestParam(required = false) String title) {
     try {
@@ -53,7 +51,6 @@ public class TasksController {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
   @GetMapping("/tasks/{id}")
   public ResponseEntity<Tasks> getTasksById(@PathVariable("id") long id) {
     Optional<Tasks> tasksData = tasksRepository.findById(id);
@@ -64,7 +61,6 @@ public class TasksController {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
   }
-
   @PostMapping("/tasks")
   public ResponseEntity<Tasks> createTasks(@RequestBody Tasks tasks) {
     try {
@@ -74,7 +70,6 @@ public class TasksController {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
   @PutMapping("/tasks/{id}")
   public ResponseEntity<Tasks> updateTasks(@PathVariable("id") long id, @RequestBody Tasks tasks) {
     Optional<Tasks> tasksData = tasksRepository.findById(id);
@@ -90,7 +85,6 @@ public class TasksController {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
   }
-
   @DeleteMapping("/tasks/{id}")
   public ResponseEntity<HttpStatus> deleteTasks(@PathVariable("id") long id) {
     try {
@@ -100,7 +94,6 @@ public class TasksController {
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
   @DeleteMapping("/tasks")
   public ResponseEntity<HttpStatus> deleteAllTasks() {
     try {
@@ -111,7 +104,6 @@ public class TasksController {
     }
 
   }
-
   @GetMapping("/tasks/completed")
   public ResponseEntity<List<Tasks>> findByCompleted() {
     try {
