@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reina_madre.repository.TasksRepository;
+import com.reina.madre.repository.TasksRepository;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
