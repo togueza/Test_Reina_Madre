@@ -1,5 +1,5 @@
 package com.reina.madre.configuration;
-
+/*
 import com.reina.madre.exceptions.CompromisedPasswordAuthenticationFailureHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -74,3 +74,4 @@ public class SecurityConfig{
     }
 
 }
+*/

@@ -8,8 +8,8 @@
 		<version>3.1.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com</groupId>
-	<artifactId>reina.madre</artifactId>
+	<groupId>com.reina.madre</groupId>
+	<artifactId>reina-madre</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>reina-madre-backend</name>
 	<description>TEST</description>

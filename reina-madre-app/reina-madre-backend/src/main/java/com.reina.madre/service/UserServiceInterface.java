@@ -1,5 +1,5 @@
 package com.reina.madre.service;
-
+/*
 import com.reina.madre.model.Users;
 import org.springframework.stereotype.Service;
 
@@ -10,3 +10,4 @@ public interface UserServiceInterface {
     public Users findByUserName(String username);
 
 }
+*/
